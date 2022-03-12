@@ -6,11 +6,13 @@
   --title-text-color: #212121;
   --adress-text-color: rgba(255, 255, 255, 0.6);
   --black-color: #000000;
-  --secondary-backgraund-color: #f5f4fa;
-  --hero-backgraund-color: #2f303a;
+  --secondary-bgc: #f5f4fa;
+  --hero-bgc: #2f303a;
   --clients-logo-color: #afb1b8;
   --footer-social-color: rgba(255, 255, 255, 0.1);
-  --label-backgraund-color: rgba(47, 48, 58, 0.8);
+  --label-bgc: rgba(47, 48, 58, 0.8);
+  --gallery-thumb-bgc: rgba(33, 150, 243, 0.9);
+  --backdrop-bgc: rgba(0, 0, 0, 0.2);
 
   /* Animations */
   --transition-duration: 250ms;
@@ -175,7 +177,7 @@ body {
   text-align: center;
   background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
     url(../images/bcg-hero.jpg);
-  background-color: var(--hero-backgraund-color);
+  background-color: var(--hero-bgc);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -224,7 +226,7 @@ body {
   justify-content: center;
   width: 270px;
   height: 120px;
-  background-color: var(--secondary-backgraund-color);
+  background-color: var(--secondary-bgc);
   margin-bottom: 30px;
 }
 .features-icon {
@@ -267,7 +269,7 @@ body {
   padding: 27px 0;
   width: 100%;
   height: 70px;
-  background-color: var(--label-backgraund-color);
+  background-color: var(--label-bgc);
 
   font-weight: 700;
   font-size: 14px;
@@ -278,7 +280,7 @@ body {
   color: var(--white-color);
 }
 .team {
-  background-color: var(--secondary-backgraund-color);
+  background-color: var(--secondary-bgc);
 }
 .team-list {
   display: flex;
@@ -391,7 +393,7 @@ body {
   border: 1px var(--title-text-color);
 
   color: var(--title-text-color);
-  background-color: var(--secondary-backgraund-color);
+  background-color: var(--secondary-bgc);
   font-family: inherit;
   font-weight: 500;
   font-size: 16px;
@@ -411,7 +413,7 @@ body {
   background-color: var(--accent-text-color);
   box-shadow: 0px 2px 2px 0px #0000001f, 0px 1px 2px 0px #00000014, 0px 3px 1px 0px #0000001a;
 }
-.gallery-button.current {
+.gallery-button.current-btn {
   border-color: var(--accent-text-color);
   color: var(--white-color);
   background-color: var(--accent-text-color);
@@ -434,6 +436,33 @@ body {
 .gallery-list .gallery-item:nth-child(-n + 3) {
   margin-top: 0;
 }
+.gallery-thumb {
+  position: relative;
+  overflow: hidden;
+}
+.gallery-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(100%);
+  transition: transform var(--transition-duration) var(--transition-timing-function);
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 63px 24px;
+
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--white-color);
+  background-color: var(--gallery-thumb-bgc);
+  overflow: hidden;
+}
+.gallery-item:hover .gallery-text {
+  transform: translateY(0);
+}
+
 .item-description {
   padding: 20px 24px;
   border-right: 1px solid #eeeeee;
@@ -449,7 +478,7 @@ body {
   line-height: 2;
   letter-spacing: 0.06em;
 }
-.gallery-text {
+.gallery-type {
   margin-top: 4px;
   margin-bottom: 0;
 
@@ -463,7 +492,7 @@ body {
   padding-top: 60px;
   padding-bottom: 60px;
 
-  background-color: var(--hero-backgraund-color);
+  background-color: var(--hero-bgc);
 }
 .footer > .conteiner {
   display: flex;
@@ -522,4 +551,48 @@ body {
 .social-list .social-links:hover,
 .social-list .social-links:focus {
   background-color: var(--accent-text-color);
+}
+
+/* Modal */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+  background-color: var(--backdrop-bgc);
+  opacity: 1;
+  transition: opacity var(--transition-duration) var(--transition-timing-function);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: transform var(--transition-duration) var(--transition-timing-function),
+    opacity var(--transition-duration) var(--transition-timing-function);
+
+  min-width: 528px;
+  min-height: 581px;
+  padding: 8px;
+  background-color: var(--white-color);
+}
+.modal-btn {
+  width: 30px;
+  height: 30px;
+  background-color: var(--white-color);
+  border-radius: 50%;
+  border-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
