@@ -107,6 +107,7 @@ body {
   display: block;
   padding-top: 32px;
   padding-bottom: 31px;
+  transition: color var(--transition-duration) var(--transition-timing-function);
 
   color: var(--title-text-color);
   font-weight: 500;
@@ -135,6 +136,7 @@ body {
 }
 .header-contacts {
   padding: 32px 0;
+  transition: color var(--transition-duration) var(--transition-timing-function);
 
   color: var(--primary-text-color);
   font-weight: 500;
@@ -336,10 +338,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: color var(--transition-duration) var(--transition-timing-function),
+    background-color var(--transition-duration) var(--transition-timing-function);
+
   width: 44px;
   height: 44px;
   border-radius: 50%;
-
   color: var(--clients-logo-color);
 }
 .social-icon {
@@ -360,6 +364,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: color var(--transition-duration) var(--transition-timing-function),
+    border-color var(--transition-duration) var(--transition-timing-function);
 
   width: 170px;
   height: 92px;
@@ -391,6 +397,10 @@ body {
   border-radius: 4px;
   padding: 6px 22px;
   border: 1px var(--title-text-color);
+  transition: color var(--transition-duration) var(--transition-timing-function),
+    border-color var(--transition-duration) var(--transition-timing-function),
+    background-color var(--transition-duration) var(--transition-timing-function),
+    box-shadow var(--transition-duration) var(--transition-timing-function);
 
   color: var(--title-text-color);
   background-color: var(--secondary-bgc);
@@ -518,6 +528,7 @@ body {
 }
 .footer-contacts {
   display: block;
+  transition: color var(--transition-duration) var(--transition-timing-function);
 
   color: var(--adress-text-color);
   font-style: normal;
@@ -547,6 +558,7 @@ body {
 }
 .social-list .social-links {
   background-color: var(--footer-social-color);
+  color: var(--white-color);
 }
 .social-list .social-links:hover,
 .social-list .social-links:focus {
@@ -587,7 +599,7 @@ body {
 
   min-width: 528px;
   min-height: 581px;
-  padding: 8px;
+  padding: 7px 6px;
   background-color: var(--white-color);
   border-radius: 4px;
 }
